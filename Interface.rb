@@ -47,9 +47,24 @@ def control
           amount = gets.to_i
           Product.add_products(id,amount)
         end
-      when 3 then
-      when 4 then
-      when 5 then
+      when 3 then go_back do
+          Product.all(false)
+          puts "what is the product id?"
+          id = gets.to_i
+          puts "Which is the new price?"
+          price = gets.to_f
+          Product.modifi_price(id,price)
+        end
+      when 4 then go_back do
+          puts "what's the name"
+          product = Product.new(gets)
+          product.register
+        end
+      when 5 then go_back do
+          Product.all(false)
+          puts "What is the product id"
+          Product.delete(gets.to_i)
+        end
       when 6 then
       when 7 then
       when 8 then

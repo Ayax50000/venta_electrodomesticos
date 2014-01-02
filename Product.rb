@@ -6,8 +6,8 @@ class Product
   @@sells = []
 
   def initialize(name,price = 0)
-    puts @name = name.upcase
-    puts @price = price.to_f
+    @name = name.upcase
+    @price = price.to_f
   end
 
   def registered?
@@ -42,6 +42,7 @@ class Product
   def self.delete(id)
     $products.delete(id)
     @@current_ids << id
+    $success.call
   end
 
   def self.all(param = "",over)
@@ -122,8 +123,3 @@ command = "n"
   Product.sell
   Product.all(false)
 end
-Product.delete(2)
-Product.all(false)
-
-
-
