@@ -44,15 +44,12 @@ class Product
     @@current_ids << id
   end
 
-  def self.show(array)
-   puts "#{array[0]} #{array[1]} #{array[2]}"
-  end
-
-  def self.all(param = "")
+  def self.all(param = "",over)
     param.upcase!
-    $products.each do |product|
-      if (product[1][0].include? param) && product[1][0]!="NAME"
-        Product.show(product)
+    $products.each do |prod|
+      if (prod[1][0].include? param) && prod[1][0]!="NAME"
+        gain = prod[1][3]
+        puts "#{prod[0]}  #{prod[1][0]}  #{prod[1][1]}  #{prod[1][2]} #{(over)? gain :""}"
       end
     end
   end
@@ -76,11 +73,13 @@ class Product
     total = 0
     @@sells.each do |product|
       puts "#{product[0]}\t#{product[1]}\t#{product[3]}\t#{product[2]}"
+      $products[product[4]][3] += product[2]
       total += product[2]
     end
     puts "total = #{total}"
     discount_products
     $earnings += total
+    @@sells = []
   end
 
   def self.get_by_id(id)
@@ -108,7 +107,7 @@ command = "n"
   while command != "s"
     if command == "n"
       system 'clear'
-      Product.all
+      Product.all(false)
       puts "what is the id product do you like to sell?\n"
       id = gets.chomp
       puts "how much products?"
@@ -119,10 +118,10 @@ command = "n"
     command = gets.chomp
   end
   Product.sell
-  Product.all
+  Product.all(false)
 end
 Product.delete(2)
-Product.all
+Product.all(false)
 
 
 

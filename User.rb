@@ -15,6 +15,7 @@ class User
        $current_user = user
       end
     end
+    continue
   end
 
   def session_close

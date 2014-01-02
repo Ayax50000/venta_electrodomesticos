@@ -1,8 +1,8 @@
 
- $products = {1=>["MICROWAVES",500,20],2=>["STOVE",500,20], 3=>["WASHER",500,20],
-              4=>["REFRIGERATOR",500,20],5=>["RECORDER",500,20],6=>["CAMERA",500,20]}
+ $products = {1=>["MICROWAVES",500,20,0.0],2=>["STOVE",500,20,0.0], 3=>["WASHER",500,20,0.0],
+              4=>["REFRIGERATOR",500,20,0.0],5=>["RECORDER",500,20,0.0],6=>["CAMERA",500,20,0.0]}
 
- $earnings = 0
+ $sales = {  }
 
  $current_user = []
 
@@ -13,4 +13,3 @@
 
  $success = lambda{puts "Successful Operation"}
  $failure = lambda{puts "Operation Failure"}
-
