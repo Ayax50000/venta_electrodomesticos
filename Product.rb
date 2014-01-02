@@ -39,6 +39,11 @@ class Product
     end
   end
 
+  def self.delete(id)
+    $products.delete(id)
+    @@current_ids << id
+  end
+
   def self.show(array)
    puts "#{array[0]} #{array[1]} #{array[2]}"
   end
@@ -90,11 +95,12 @@ class Product
   end
 
   def self.add_products(id,amount)
-    $products[id]][2] += amount
+    $products[id][2] += amount
   end
 
-
-
+  def self.modifi_price(id,price)
+    $products[id][1] = price
+  end
 end
 
 def sell_product
@@ -115,3 +121,8 @@ command = "n"
   Product.sell
   Product.all
 end
+Product.delete(2)
+Product.all
+
+
+
