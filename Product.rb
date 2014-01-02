@@ -52,10 +52,10 @@ class Product
     end
   end
 
-  def add_sell(id_product,amount)
+  def self.add_sell(id_product,amount)
     name = get_by_id(id_product)
-    cost = value(id_produc,amount)
-    @@sells << [name,amount,cost[0],cost[1]]
+    cost = value(id_product,amount)
+    @@sells << [name,amount,cost[0],cost[1],id_product]
   end
 
   def self.value(id,amount)
@@ -66,9 +66,14 @@ class Product
   end
 
   def self.sell
+    system 'clear'
+    puts "NAME\tAMOUNT\tPRICE\tTOTAL"
+    total = 0
     @@sells.each do |product|
-      total += $products[2]
+      puts "#{product[0]}\t#{product[1]}\t#{product[3]}\t#{product[2]}"
+      total += product[2]
     end
+    puts "total = #{total}"
   end
 
   def self.get_by_id(id)
@@ -76,7 +81,24 @@ class Product
     name ||= "nothing"
   end
 
+  def delete_product()
+
+  end
+
 end
 
-Product.all
-
+command = "n"
+while command != "s"
+  if command == "n"
+    system 'clear'
+    Product.all
+    puts "what is the id product do you like to sell?\n"
+    id = gets.chomp
+    puts "how much products?"
+    amount = gets.chomp
+    Product.add_sell(id.to_i,amount.to_f)
+  end
+  print "press s to finish the sell or n to add other product\n"
+  command = gets.chomp
+end
+Product.sell
