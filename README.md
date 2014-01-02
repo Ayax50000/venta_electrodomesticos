@@ -3,6 +3,8 @@ venta_electrodomesticos
 
 Sistema para venta de electrodomesticos
 
+Usuarios: supervisor, administrador, empleado
+
 Requerimientos
 dar de alta productos
 dar de baja productos
@@ -15,3 +17,4 @@ modificar precio de venta
 vender productos
 comprar productos
 ver resumen de venta
+ver resumen de adquisiciones
