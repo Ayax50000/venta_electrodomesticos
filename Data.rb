@@ -4,8 +4,10 @@
 
  $earnings = 0
 
- $users = [["FEDERICO RANGEL",1],["HECTOR SOTO LARIOS",1],
-           ["JOSE MARTIN CHAVEZ",2],["OSCAR MARTINEZ SOTO",3]]
+ $current_user = []
+
+ $users = [["FEDERICO RANGEL","pocoyo",1],["HECTOR SOTO LARIOS","pocoyo",1],
+           ["JOSE MARTIN CHAVEZ","pocoyo",2],["OSCAR MARTINEZ SOTO","pocoyo",3]]
 
  $function = { 1=>"EMPLOYEE",2=>"SUPERVISOR",3=>"ADMINISTRATOR" }
 
