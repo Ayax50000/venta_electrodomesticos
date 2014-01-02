@@ -3,6 +3,7 @@ require_relative 'Data.rb'
 class Product
 
   @@current_ids = [7]
+  @@sells = []
 
   def initialize(name,price = 0)
     puts @name = name.upcase
@@ -44,7 +45,6 @@ class Product
 
   def self.all(param = "")
     param.upcase!
-    Product.show($products[:index])
     $products.each do |product|
       if (product[1][0].include? param) && product[1][0]!="NAME"
         Product.show(product)
@@ -52,12 +52,31 @@ class Product
     end
   end
 
-  def prepare_sell()
-
+  def add_sell(id_product,amount)
+    name = get_by_id(id_product)
+    cost = value(id_produc,amount)
+    @@sells << [name,amount,cost[0],cost[1]]
   end
+
+  def self.value(id,amount)
+    if get_by_id(id) != "nothing"
+    val = [$products[id][1] * amount,$products[id][1]]
+    end
+    val ||= [0,0]
+  end
+
+  def self.sell
+    @@sells.each do |product|
+      total += $products[2]
+    end
+  end
+
+  def self.get_by_id(id)
+    name = $products[id][0]
+    name ||= "nothing"
+  end
+
 end
 
-product = Product.new("freezer",500)
- Product.all
-product.register
 Product.all
+

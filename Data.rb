@@ -1,6 +1,6 @@
 
- $products = {index:["NAME","PRICE","STOCK"],1=>["MICROWAVES",500,20],2=>["STOVE",500,20],
-              3=>["WASHER",500,20],4=>["REFRIGERATOR",500,20],5=>["RECORDER",500,20],6=>["CAMERA",500,20]}
+ $products = {1=>["MICROWAVES",500,20],2=>["STOVE",500,20], 3=>["WASHER",500,20],
+              4=>["REFRIGERATOR",500,20],5=>["RECORDER",500,20],6=>["CAMERA",500,20]}
 
  $earnings = 0
 
