@@ -74,6 +74,8 @@ class Product
       total += product[2]
     end
     puts "total = #{total}"
+    discount_products
+    $earnings += total
   end
 
   def self.get_by_id(id)
@@ -81,8 +83,10 @@ class Product
     name ||= "nothing"
   end
 
-  def delete_product()
-
+  def self.discount_products()
+    @@sells.each do |for_sell|
+      $products[for_sell[4]][2]-= for_sell[1]
+    end
   end
 
 end
@@ -102,3 +106,4 @@ while command != "s"
   command = gets.chomp
 end
 Product.sell
+Product.all
