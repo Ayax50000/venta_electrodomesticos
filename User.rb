@@ -4,7 +4,7 @@ class User
 
   def initialize(name,password)
     @name = name.upcase
-    @password = password.upcase
+    @password = password
   end
 
   def session_open
@@ -16,10 +16,6 @@ class User
       end
     end
     continue
-  end
-
-  def session_close
-    sistem 'exit'
   end
 
 end

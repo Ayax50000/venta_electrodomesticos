@@ -95,10 +95,12 @@ class Product
 
   def self.add_products(id,amount)
     $products[id][2] += amount
+    $success.call
   end
 
   def self.modifi_price(id,price)
     $products[id][1] = price
+    $success.call
   end
 end
 

@@ -2,7 +2,7 @@
  $products = {1=>["MICROWAVES",500,20,0.0],2=>["STOVE",500,20,0.0], 3=>["WASHER",500,20,0.0],
               4=>["REFRIGERATOR",500,20,0.0],5=>["RECORDER",500,20,0.0],6=>["CAMERA",500,20,0.0]}
 
- $sales = {  }
+ $earnings = 0
 
  $current_user = []
 
