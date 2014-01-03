@@ -1,5 +1,5 @@
-require_relative 'User.rb'
-require_relative 'Product.rb'
+require_relative 'user.rb'
+require_relative 'product.rb'
 
 def clean
   system 'clear'

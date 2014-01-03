@@ -1,4 +1,4 @@
-require_relative 'Data.rb'
+require_relative 'data.rb'
 
 class Product
 
