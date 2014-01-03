@@ -5,6 +5,9 @@ def clean
   system 'clear'
 end
 
+idproduct = lambda{ puts "what is the product id ?\n"}
+amout = lambda{ puts "what is the amount?\n" }
+
 def start
   clean
   puts "start session"
@@ -41,17 +44,17 @@ def control
       when 1 then go_back {sell_product}
       when 2 then go_back do
           Product.all(false)
-          puts "what is the product id ?"
+          idproduct.call
           id = gets.to_i
-          puts "how much do you want?"
+          amount.call
           amount = gets.to_i
           Product.add_products(id,amount)
         end
       when 3 then go_back do
           Product.all(false)
-          puts "what is the product id?"
+          idproduct.call
           id = gets.to_i
-          puts "Which is the new price?"
+          amount.call
           price = gets.to_f
           Product.modifi_price(id,price)
         end
@@ -62,14 +65,14 @@ def control
         end
       when 5 then go_back do
           Product.all(false)
-          puts "What is the product id"
+          idproduct.call
           Product.delete(gets.to_i)
         end
       when 6 then go_back do
           Product.all(false)
-          puts "what's the product id?"
+          idproduct.call
           id = gets.to_i
-          puts "how much do you want"
+          amount.call
           Product.add_products(id,gets.to_i)
         end
       when 7 then go_back do
@@ -85,10 +88,10 @@ command = "n"
     if command == "n"
       system 'clear'
       Product.all(false)
-      puts "what is the product id do you like to sell?\n"
+      idproduct.call
       id = gets.chomp
       puts "how much products?"
-      amount = gets.chomp
+      amount.call
       Product.add_sell(id.to_i,amount.to_f)
     end
     print "press s to finish the sell or n to add other product\n"
@@ -108,4 +111,5 @@ def go_back
   menu
   control
 end
+
 start

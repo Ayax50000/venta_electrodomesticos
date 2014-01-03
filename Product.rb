@@ -105,21 +105,3 @@ class Product
   end
 end
 
-def sell_product
-command = "n"
-  while command != "s"
-    if command == "n"
-      system 'clear'
-      Product.all(false)
-      puts "what is the id product do you like to sell?\n"
-      id = gets.chomp
-      puts "how much products?"
-      amount = gets.chomp
-      Product.add_sell(id.to_i,amount.to_f)
-    end
-    print "press s to finish the sell or n to add other product\n"
-    command = gets.chomp
-  end
-  Product.sell
-  Product.all(false)
-end
