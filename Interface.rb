@@ -65,9 +65,16 @@ def control
           puts "What is the product id"
           Product.delete(gets.to_i)
         end
-      when 6 then
-      when 7 then
-      when 8 then
+      when 6 then go_back do
+          Product.all(false)
+          puts "what's the product id?"
+          id = gets.to_i
+          puts "how much do you want"
+          Product.add_products(id,gets.to_i)
+        end
+      when 7 then go_back do
+        Product.all(true)
+      end
     end
   end
 end
